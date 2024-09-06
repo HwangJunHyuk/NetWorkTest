@@ -1,7 +1,7 @@
 {
     "Version": 1,
     "TypeId": "NetworkProjectConfig",
-    "PeerMode": 1,
+    "PeerMode": 0,
     "LagCompensation": {
         "Enabled": false,
         "HitboxBufferLengthInMs": 200,
@@ -17,12 +17,12 @@
         "ReplicationFeatures": 0,
         "InputTransferMode": 0,
         "SimulationUpdateTimeMode": 0,
-        "PlayerCount": 10,
+        "PlayerCount": 2,
         "TickRateSelection": {
-            "Client": 64,
+            "Client": 128,
             "ServerIndex": 0,
-            "ClientSendIndex": 1,
-            "ServerSendIndex": 1
+            "ClientSendIndex": 0,
+            "ServerSendIndex": 0
         }
     },
     "Network": {
@@ -53,7 +53,7 @@
         "AdditionalLoss": 0.0
     },
     "Heap": {
-        "PageShift": 15,
+        "PageShift": 17,
         "PageCount": 256,
         "GlobalsSize": 0
     },

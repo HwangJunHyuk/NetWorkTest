@@ -12,14 +12,14 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
-      //if (runner.IsServer)
-      //{
+      if (runner.IsServer)
+      {
             // Create a unique position for the player
             Vector3 spawnPosition = new Vector3((player.RawEncoded % runner.Config.Simulation.PlayerCount) * 3, 1, 0);
             NetworkObject networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
-            networkPlayerObject.AssignInputAuthority(player);
-            _spawnedCharacters.Add(player, networkPlayerObject);
-     // }
+            networkPlayerObject.AssignInputAuthority(player); 
+            _spawnedCharacters.Add(player, networkPlayerObject);  
+      }
     }
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
@@ -32,27 +32,19 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     }
     public void OnInput(NetworkRunner runner, NetworkInput input)
     {
-        var data = new NetworkInputData();
+        var data = new NetworkInputData(); 
 
-        // 좌우 이동
         if (Input.GetKey(KeyCode.A))
             data.direction += Vector2.left;
+        if (Input.GetKey(KeyCode.W))
+            data.direction += Vector2.up;
+        if (Input.GetKey(KeyCode.S))
+            data.direction += Vector2.down;
         if (Input.GetKey(KeyCode.D))
             data.direction += Vector2.right;
 
-        // 점프 입력 (위쪽 키)
-        if (Input.GetKey(KeyCode.W) && IsGrounded()) // 점프는 땅에 있을 때만 가능
-            data.direction += Vector2.up;
-
         input.Set(data);
     }
-
-    private bool IsGrounded()
-    {
-        // 간단한 땅 체크 로직
-        return Physics2D.Raycast(transform.position, Vector2.down, 0.1f);
-    }
-
   public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
   public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }
   public void OnConnectedToServer(NetworkRunner runner) { }
@@ -105,7 +97,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             }
             if (GUI.Button(new Rect(0,40,200,40), "Join"))
             {
-                StartGame(GameMode.Client);
+                StartGame(GameMode.Client);  
             }
         }
     }
