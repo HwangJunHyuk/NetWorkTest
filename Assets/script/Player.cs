@@ -21,7 +21,7 @@ public class Player : NetworkBehaviour
 
     private void Start()
     {
-        // NetworkRunner를 할당 (필요시 외부에서 할당되도록 할 수도 있음)
+        // NetworkRunner를 할당
         _runner = FindObjectOfType<NetworkRunner>();
     }
 
@@ -48,9 +48,11 @@ public class Player : NetworkBehaviour
 
         if (GetInput(out NetworkInputData data))
         {
+            Debug.Log("Input Data: " + data.direction);  // 입력 확인
+
             // 가로축 이동
             Vector2 moveDirection = new Vector2(data.direction.x * moveSpeed, _rb2.Rigidbody.velocity.y);
-            
+
             // 클라이언트 예측: 호스트의 움직임을 예측
             if (Runner.IsForward)
             {
