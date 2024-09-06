@@ -759,8 +759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa438ef63e346449b60d1048c40ebb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _runner: {fileID: 0}
-  _object: {fileID: 0}
   playerPrefab: {fileID: 8963426651220765223, guid: 8bf3692bc86424d45b60fdfd5a9ed6cb, type: 3}
 --- !u!1 &1348292537
 GameObject:
@@ -908,7 +906,7 @@ GameObject:
   - component: {fileID: 1836401453}
   - component: {fileID: 1836401452}
   - component: {fileID: 1836401451}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
