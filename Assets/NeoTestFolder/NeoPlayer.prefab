@@ -201,11 +201,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SyncScale: 0
   SyncParent: 1
-  _interpolationTarget: {fileID: 0}
+  _interpolationTarget: {fileID: 5568006815331587815}
   UsePreciseRotation: 0
-  UseRenderSleepThresholds: 1
+  UseRenderSleepThresholds: 0
   RenderThresholds:
-    UseEnergy: 1
+    UseEnergy: 0
     Position: 0.01
     Rotation: 0.01
     Scale: 0.01
@@ -263,7 +263,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  _speed: 20000
+  _speed: 1500
   _jumpForce: 14
   _maxVelocity: 10
   fallMultiplier: 2
